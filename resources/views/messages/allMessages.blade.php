@@ -25,7 +25,7 @@
 	</table>
 
 	<form action="/messages/add">
-		<button>Add a message</button>
+		<button>Encrypt a new message</button>
 	</form>
 </body>
 </html>

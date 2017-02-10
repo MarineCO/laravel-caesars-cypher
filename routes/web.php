@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/messages', 'MessageController@getMessage');
 
-Route::get('/messages/add', 'MessageController@getNewMessage');
+Route::get('/messages/add', 'MessageController@getNewEncryptMessage');
 
-Route::post('/messages/addMessage', 'MessageController@postNewMessage');
+Route::post('/messages/addMessage', 'MessageController@postNewEncryptMessage');
 

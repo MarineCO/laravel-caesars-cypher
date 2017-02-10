@@ -20,7 +20,7 @@
 					<input id="offset" type="text" name="offset"/>
 				</div>
 
-				<input class="ui yellow button" type="submit" value="Add the new message"/>
+				<input class="ui yellow button" type="submit" value="Code the new message"/>
 			</form>
 		</div>
 	</div>

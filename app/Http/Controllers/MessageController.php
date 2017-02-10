@@ -12,18 +12,34 @@ class MessageController extends Controller
     	return view('messages.allMessages', ['messages' => $messages]);
     }
 
-    public function getNewMessage() {
+    public function getNewEncryptMessage() {
     	return view('messages.addMessage');   	
     }
 
-    public function postNewMessage(Request $request) {
-    	$newMess = new \App\Message;
-    	$newMess->content = $request->content;
-    	$newMess->offset = $request->offset;
-    	$newMess->save();
+    public function postNewEncryptMessage(Request $request) {
+    	$mess = $request->content;
+    	$offset = $request->offset;
+
+    	$message = new \App\Message;
+    	$message->content = $this->encryptMessage($mess, $offset);
+    	$message->offset = $offset;
+
+    	$message->save();
 
     	return redirect('/messages');
     }
 
+    public function encryptMessage($mess, $offset) {
+    	$newMess='';
+    	$messLen = strlen($mess);
+    	 
+    	for ($i = 0; $i < $messLen; $i++) {
+    		$char = substr($mess, $i, 1);
+    		$test = ord($char) + $offset;
+    		$newMess .= chr($test);
+    	};
+
+    	return $newMess;
+    }
 
 }
