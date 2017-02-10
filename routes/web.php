@@ -16,3 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/messages', 'MessageController@getMessage');
+
+Route::get('/messages/add', 'MessageController@getNewMessage');
+
+Route::post('/messages/addMessage', 'MessageController@postNewMessage');
+

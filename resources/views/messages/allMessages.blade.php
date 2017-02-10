@@ -23,5 +23,9 @@
 		@endforeach
 
 	</table>
+
+	<form action="/messages/add">
+		<button>Add a message</button>
+	</form>
 </body>
 </html>
