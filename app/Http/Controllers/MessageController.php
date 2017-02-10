@@ -42,4 +42,11 @@ class MessageController extends Controller
     	return $newMess;
     }
 
+    public function deleteMessage($id) {
+    	$deleteMessage = \App\Message::find($id);
+    	$deleteMessage->delete();
+
+    	return back();
+    }
+
 }
