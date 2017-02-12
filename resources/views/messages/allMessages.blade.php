@@ -16,12 +16,17 @@
 
 			<div class="ui card">
 				<div class="ui center aligned segment">
-					<p>{{ $mess->id }} : {{ $mess->content }}</p>
+					<h2>{{ $mess->id }} : {{ $mess->content }}</h2>
 					<p>
 						<form action="/messages/delete/{{$mess->id}}" method="POST">{{csrf_field()}}
 							{{ method_field('DELETE') }}
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
-							<button class="ui red button">Delete</button>
+							<button class="ui fluid red button">Delete</button>
+						</form>
+					</p>
+					<p>
+						<form action="/messages/decipher/{{$mess->id}}" method="GET">
+							<button class="ui fluid yellow button">Decrypt a message</button>
 						</form>
 					</p>
 				</div>
@@ -32,6 +37,7 @@
 			<form action="/messages/add">
 				<button class="big ui fluid green button">Encrypt a new message</button>
 			</form>
+
 		</div>
 	</div>
 </body>

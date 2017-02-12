@@ -13,7 +13,7 @@
 				
 				<div class="field">
 					<label for="content">Message</label>
-					<input id="content" type="text" name="content"></input>
+					<input id="content" type="text" name="content"/>
 				</div>
 				<div class="field">
 					<label for="offset">Offset</label>

@@ -22,3 +22,7 @@ Route::get('/messages/add', 'MessageController@getNewEncryptMessage');
 Route::post('/messages/addMessage', 'MessageController@postNewEncryptMessage');
 
 Route::delete('/messages/delete/{id}', 'MessageController@deleteMessage');
+
+Route::get('/messages/decipher/{id}', 'MessageController@getEncryptMessage');
+
+Route::put('/message/decipherMessage', 'MessageController@postDecipherMessage');

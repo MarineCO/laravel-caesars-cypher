@@ -49,4 +49,33 @@ class MessageController extends Controller
     	return back();
     }
 
+    public function getEncryptMessage($id) {
+    	$decipher = \App\Message::find($id);
+
+    	return view('messages.decipherMessage', ['decipher' => $decipher]);
+    }
+
+    public function postDecipherMessage(Request $request) {
+    	$decipher = \App\Message::find($request->id);
+
+    	$mess = $request->content;
+    	$offset = $request->offset;
+
+    	$decryptMess = $this->decryptMessage($mess, $offset);
+
+    	return view('messages.decryptedMessage', ['decryptMess' => $decryptMess]);
+    }
+
+    public function decryptMessage($mess, $offset) {
+    	$newMess='';
+    	$messLen = strlen($mess);
+    	 
+    	for ($i = 0; $i < $messLen; $i++) {
+    		$char = substr($mess, $i, 1);
+    		$test = ord($char) - $offset;
+    		$newMess .= chr($test);
+    	};
+
+    	return $newMess;
+    }
 }
