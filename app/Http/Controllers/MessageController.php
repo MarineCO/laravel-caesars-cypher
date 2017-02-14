@@ -39,7 +39,7 @@ class MessageController extends Controller
     		$newMess .= chr($test);
     	};
 
-    	return $newMess;
+    	return utf8_encode($newMess);
     }
 
     public function deleteMessage($id) {
@@ -63,7 +63,7 @@ class MessageController extends Controller
 
     	$decryptMess = $this->decryptMessage($mess, $offset);
 
-    	return view('messages.decryptedMessage', ['decryptMess' => $decryptMess]);
+    	return view('messages.decryptedMessage', ['decryptMess' => utf8_decode($decryptMess)]);
     }
 
     public function decryptMessage($mess, $offset) {

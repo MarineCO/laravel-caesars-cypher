@@ -14,7 +14,7 @@
 
 			@foreach ($messages as $mess)
 
-			<div class="ui card">
+			<div class="ui centered card">
 				<div class="ui center aligned segment">
 					<h2>{{ $mess->id }} : {{ $mess->content }}</h2>
 					<p>
@@ -34,8 +34,8 @@
 
 			@endforeach
 
-			<form action="/messages/add">
-				<button class="big ui fluid green button">Encrypt a new message</button>
+			<form action="/messages/add" class="ui center aligned container">
+				<button class="big ui green button">Encrypt a new message</button>
 			</form>
 
 		</div>
